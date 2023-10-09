@@ -23,11 +23,11 @@ if(empty($msg->user_id)){
     }
     if (!empty($msg->message)) {
             $curl = curl_init();
-curl_setopt_array($curl, array(CURLOPT_URL => 'http://justsell.io/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("time"=>$msg->time,"user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id","message"=>$msg->message,"time"=>$msg->time),
+curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("time"=>$msg->time,"user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id","message"=>$msg->message,"time"=>$msg->time),
 ));$response = curl_exec($curl);curl_close($curl);
 }elseif (!empty($msg->image)) {
 $curl = curl_init();
-curl_setopt_array($curl, array(CURLOPT_URL => 'http://justsell.io/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("time"=>$msg->time,"user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id","image"=>$msg->image,"time"=>$msg->time),
+curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("time"=>$msg->time,"user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id","image"=>$msg->image,"time"=>$msg->time),
 ));$response = curl_exec($curl);curl_close($curl);
 }
     foreach($this->clients as $key => $client) {
@@ -38,7 +38,7 @@ curl_setopt_array($curl, array(CURLOPT_URL => 'http://justsell.io/api/message',C
     $from->product_id = $msg->product_id;
     $this->clients[$key] = $from;
     $curl = curl_init();
-	curl_setopt_array($curl, array(CURLOPT_URL => 'http://justsell.io/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id"),
+	curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id"),
 	));curl_exec($curl);curl_close($curl);
 	$client->send('{"status":"offline"}');
     		foreach($this->clients as $key => $client) {
