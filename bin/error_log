@@ -1,0 +1,12 @@
+[01-Dec-2021 09:11:31 UTC] PHP Fatal error:  Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:8080": Address already in use in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/vendor/react/socket/src/TcpServer.php:164
+Stack trace:
+#0 /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/vendor/react/socket/src/Server.php(36): React\Socket\TcpServer->__construct('tcp://0.0.0.0:8...', Object(React\EventLoop\StreamSelectLoop), Array)
+#1 /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct('0.0.0.0:8080', Object(React\EventLoop\StreamSelectLoop))
+#2 /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/server.php(15): Ratchet\Server\IoServer::factory(Object(Ratchet\Http\HttpServer), 8080)
+#3 {main}
+  thrown in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/vendor/react/socket/src/TcpServer.php on line 164
+[01-Dec-2021 09:13:24 UTC] PHP Warning:  socket_bind(): unable to bind address [99]: Cannot assign requested address in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/websoket.php on line 6
+[01-Dec-2021 09:14:58 UTC] PHP Warning:  socket_bind(): unable to bind address [99]: Cannot assign requested address in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/websoket.php on line 6
+[01-Dec-2021 09:18:53 UTC] PHP Warning:  socket_bind(): unable to bind address [98]: Address already in use in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/websoket.php on line 6
+[01-Dec-2021 09:20:32 UTC] PHP Warning:  socket_bind(): unable to bind address [98]: Address already in use in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/websoket.php on line 6
+[01-Dec-2021 09:21:35 UTC] PHP Warning:  socket_bind(): unable to bind address [99]: Cannot assign requested address in /home/u623876688/domains/demowebsites.co.in/public_html/websocket/ChatApplication/bin/websoket.php on line 6
