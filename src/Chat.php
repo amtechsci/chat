@@ -35,9 +35,9 @@ curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in
     $from->person_id = $msg->person_id;
     $from->product_id = $msg->product_id;
     $this->clients[$key] = $from;
-    $curl = curl_init();
-	curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id"),
-	));curl_exec($curl);curl_close($curl);
+    // $curl = curl_init();
+	// curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id"),
+	// ));curl_exec($curl);curl_close($curl);
 	$client->send('{"status":"offline"}');
     		foreach($this->clients as $key => $client) {
     		if(($msg->person_id == $client->user_id)){
