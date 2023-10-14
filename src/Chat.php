@@ -19,9 +19,7 @@ class Chat implements MessageComponentInterface {
     public function onMessage(ConnectionInterface $from, $msg) {
         $msg = json_decode($msg);
         
-        if(empty($msg->user_id)) {
-            print_r($msg);
-        }
+        print_r($clients);
 
         $postFields = [
             "time" => $msg->time,
