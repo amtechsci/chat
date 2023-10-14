@@ -18,9 +18,7 @@ class Chat implements MessageComponentInterface {
 
     public function onMessage(ConnectionInterface $from, $msg) {
     $msg = json_decode($msg);
-if(empty($msg->user_id)){
-    	print_r($msg);
-    }
+    print_r($msg);
     if (!empty($msg->message)) {
             $curl = curl_init();
 curl_setopt_array($curl, array(CURLOPT_URL => 'https://upuse.digitalsupporter.in/api/message',CURLOPT_RETURNTRANSFER => true,CURLOPT_ENCODING => '',CURLOPT_MAXREDIRS => 10,CURLOPT_TIMEOUT => 0,CURLOPT_FOLLOWLOCATION => true,CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,CURLOPT_CUSTOMREQUEST => 'POST',CURLOPT_POSTFIELDS => array("time"=>$msg->time,"user_id"=>$msg->user_id,"person_id"=>$msg->person_id,"product_id"=>"$msg->product_id","message"=>$msg->message,"time"=>$msg->time),
