@@ -14,12 +14,11 @@ class Chat implements MessageComponentInterface {
 
     public function onOpen(ConnectionInterface $conn) {
         $this->clients[] = $conn;
+        print_r($conn);
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
         $msg = json_decode($msg);
-        
-        print_r($clients);
 
         $postFields = [
             "time" => $msg->time,
