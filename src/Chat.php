@@ -14,7 +14,6 @@ class Chat implements MessageComponentInterface {
 
     public function onOpen(ConnectionInterface $conn) {
         $this->clients[] = $conn;
-        print_r($conn);
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -33,7 +32,7 @@ class Chat implements MessageComponentInterface {
             $postFields["image"] = $msg->image;
         }
         $response = $this->sendCurlRequest($postFields);
-
+        print_r($response);
         foreach($this->clients as $key => $client) {
             if($client === $from) {
                 if(empty($msg->message) and empty($msg->image)) {
