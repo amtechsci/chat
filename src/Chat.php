@@ -18,20 +18,25 @@ class Chat implements MessageComponentInterface {
 
     public function onMessage(ConnectionInterface $from, $msg) {
         $msg = json_decode($msg);
-        print_r(msg);
-        $postFields = [
-            "time" => $msg->time,
-            "user_id" => $msg->user_id,
-            "person_id" => $msg->person_id,
-            "product_id" => $msg->product_id
-        ];
-
         if (!empty($msg->message)) {
+            $postFields = [
+                "time" => $msg->time,
+                "user_id" => $msg->user_id,
+                "person_id" => $msg->person_id,
+                "product_id" => $msg->product_id
+            ];
             $postFields["message"] = $msg->message;
+            $response = $this->sendCurlRequest($postFields);
         } elseif (!empty($msg->image)) {
+            $postFields = [
+                "time" => $msg->time,
+                "user_id" => $msg->user_id,
+                "person_id" => $msg->person_id,
+                "product_id" => $msg->product_id
+            ];
             $postFields["image"] = $msg->image;
+            $response = $this->sendCurlRequest($postFields);
         }
-        $response = $this->sendCurlRequest($postFields);
         foreach($this->clients as $key => $client) {
             if($client === $from) {
                 if(empty($msg->message) and empty($msg->image)) {
